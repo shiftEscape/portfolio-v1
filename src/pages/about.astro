@@ -1,0 +1,137 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+import ContactCTA from "../components/ContactCTA.astro";
+import Hero from "../components/Hero.astro";
+---
+
+<BaseLayout title="About | Alvin Bellero" description="About Alvin Bellero">
+  <div class="stack gap-20">
+    <main class="wrapper about">
+      <Hero title="About Me" tagline="" />
+
+      <section>
+        <h2 class="section-title">Background</h2>
+        <div class="content">
+          <p>
+            👋 Hi, I am Alvin, a husband and a father. Born and raised from the
+            <a href="https://www.britannica.com/summary/Philippines"
+              >Philippines 🇵🇭</a
+            >
+            <br /><br />
+            I love and enjoy creating things that live on the Web. I had this huge
+            interest in Web Development during my sophomore year when I created my
+            first website using a notepad 📝. Since then, my passion grew bigger
+            along with ever-changing technologies we have now 🔥
+          </p>
+          <br />
+          <p>
+            Fast-forward to today, and I've had the privilege of working at the <a
+              href="https://www.ama.edu.ph/"
+              >first I.T school in the Philippines</a
+            >, <a href="">an SEO company</a>, <a href="#"
+              >a service delivery arm for an MNC</a
+            >, <a href="https://codev.com/">an offshore / consulting company</a>
+            &mdash; that opened its doors to a lots of opportunity for me including
+            this <a href="https://redx.com/">(real-estate) software company</a> and
+            <a href="https://www.mediajel.com/">AdTech company</a>. I also
+            co-founded a <a href="https://surelotto.ph/">start-up</a>.
+          </p>
+          <br />
+          <p>
+            My main focus these days is building key design solutions,
+            interfaces and data migrations for the customer-facing projects at <a
+              href="https://www.equinix.se/">Equinix</a
+            > based here in Singapore 🇸🇬
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="content">
+          <p>
+            🎓 AMA Computer College, B.S. in Computer Science (2011), 🏆 Best
+            Programmer (Academic Distinction)
+          </p>
+          <p>Victorias National High School (2007)</p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Skills</h2>
+        <div class="content">
+          <p>
+            🕸️ Full Stack Web / Mobile Development, Agile / Scrum, TDD | BDD
+          </p>
+        </div>
+      </section>
+      <section>
+        <h2 class="section-title">Tech</h2>
+        <div class="content">
+          <p>
+            🖥️ HTML5 + CSS3, Javascript, Frameworks including (React, Vue,
+            Angular), TypeScript, MySQL, MongoDB, GraphQL, NodeJS, Firebase,
+            Astro, Flutter, AWS, PlayWright, StoryBook, Spring Boot
+          </p>
+        </div>
+      </section>
+    </main>
+  </div>
+</BaseLayout>
+
+<style>
+  .about {
+    display: flex;
+    flex-direction: column;
+    gap: 3.5rem;
+  }
+
+  img {
+    margin-top: 1.5rem;
+    border-radius: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+
+  section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: var(--gray-200);
+  }
+
+  .section-title {
+    grid-column-start: 1;
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+  }
+
+  .content {
+    grid-column: 2 / 4;
+  }
+
+  .content :global(a) {
+    text-decoration: 1px solid underline transparent;
+    text-underline-offset: 0.25em;
+    transition: text-decoration-color var(--theme-transition);
+  }
+
+  .content :global(a:hover),
+  .content :global(a:focus) {
+    text-decoration-color: currentColor;
+  }
+
+  @media (min-width: 50em) {
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 60% 1fr;
+    }
+
+    .about > :global(:first-child) {
+      grid-column-start: 2;
+    }
+
+    section {
+      display: contents;
+      font-size: var(--text-lg);
+    }
+  }
+</style>
