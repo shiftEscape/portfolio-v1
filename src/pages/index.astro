@@ -42,12 +42,15 @@ const projects = (await getCollection("work"))
           </div>
         </Hero>
 
-        <img
-          alt="Alvin Bellero working on a laptop with tech stickers"
-          width="480"
-          height="620"
-          src="/assets/avatar-updated-min.webp"
-        />
+        <div id="avatar-wrapper">
+          <div class="overlay"></div>
+          <img
+            alt="Alvin Bellero working on a laptop with tech stickers"
+            width="480"
+            height="620"
+            src="/assets/avatar-updated-min.webp"
+          />
+        </div>
       </header>
 
       <!-- <Skills /> -->
@@ -57,7 +60,7 @@ const projects = (await getCollection("work"))
   </div>
 </BaseLayout>
 
-<style>
+<style lang="scss">
   .hero {
     display: flex;
     flex-direction: column;
@@ -96,17 +99,31 @@ const projects = (await getCollection("work"))
       border-radius: 4.5rem;
       object-fit: cover;
       position: relative;
-      padding: 8px;
-      inset: 0;
-      background: linear-gradient(
-        45deg,
-        var(--gradient-stop-1),
-        var(--gradient-stop-2),
-        var(--gradient-stop-3)
-      );
-      -webkit-mask: linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-      filter: saturate(150%) grayscale(20%);
+      filter: grayscale(100%) contrast(1);
+    }
+
+    .hero #avatar-wrapper {
+      position: relative;
+    }
+
+    .hero .overlay {
+      background-color: #d46bfb;
+      position: absolute;
+      width: 100%;
+      top: 0px;
+      bottom: 6px;
+      z-index: 2;
+      border-radius: 4.5rem;
+      opacity: 0.8;
+      mix-blend-mode: multiply;
+      transition: opacity 500ms linear 0s;
+    }
+
+    .hero .overlay:hover {
+      opacity: 0;
+      & + img {
+        filter: saturate(150%) grayscale(20%);
+      }
     }
   }
 
